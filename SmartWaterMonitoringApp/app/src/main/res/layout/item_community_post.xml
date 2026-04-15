@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/card_glass_strong"
+    android:layout_marginBottom="12dp"
+    android:padding="16dp">
+
+    <!-- Retweeted by header (visible when post is a retweet) -->
+    <LinearLayout
+        android:id="@+id/llRetweetedBy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingBottom="8dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@android:drawable/ic_menu_rotate"
+            app:tint="@color/text_secondary_dark"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="48dp"/>
+
+        <TextView
+            android:id="@+id/tvRetweetedBy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="John Doe Retweeted"
+            android:textSize="12sp"
+            android:textColor="@color/text_secondary_dark"/>
+
+    </LinearLayout>
+
+    <!-- Header: Profile Picture + Name + Time -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="12dp">
+
+        <!-- Profile Picture with Glow (Clickable for profile) -->
+        <FrameLayout
+            android:id="@+id/flProfilePic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless">
+
+            <View
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:background="@drawable/glow_effect"/>
+
+            <LinearLayout
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:background="@drawable/avatar_circle"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/ivProfilePic"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@android:drawable/ic_menu_myplaces"
+                    app:tint="@color/primary"/>
+
+            </LinearLayout>
+
+            <!-- Expert Badge -->
+            <ImageView
+                android:id="@+id/ivExpertBadge"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="bottom|end"
+                android:src="@android:drawable/btn_star_big_on"
+                app:tint="@color/accent"
+                android:visibility="gone"/>
+
+        </FrameLayout>
+
+        <!-- Name and Location Column (Clickable for profile) -->
+        <LinearLayout
+            android:id="@+id/llAuthorInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tvAuthorName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="John Doe"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary_dark"/>
+
+                <!-- Expert/Verified Badge (inline) -->
+                <ImageView
+                    android:id="@+id/ivVerifiedBadge"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_marginStart="4dp"
+                    android:src="@android:drawable/checkbox_on_background"
+                    app:tint="@color/primary"
+                    android:visibility="gone"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:src="@android:drawable/ic_menu_mylocation"
+                    app:tint="@color/primary"
+                    android:layout_marginEnd="4dp"/>
+
+                <TextView
+                    android:id="@+id/tvLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kuala Lumpur"
+                    android:textSize="13sp"
+                    android:textColor="@color/text_secondary_dark"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Timestamp and Menu -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="end">
+
+            <TextView
+                android:id="@+id/tvTimestamp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2h ago"
+                android:textSize="12sp"
+                android:textColor="@color/text_hint"/>
+
+            <!-- View count -->
+            <TextView
+                android:id="@+id/tvViewCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1.2K views"
+                android:textSize="11sp"
+                android:textColor="@color/text_hint"
+                android:layout_marginTop="2dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Post Content Text -->
+    <TextView
+        android:id="@+id/tvContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Just tested the water quality at the local river. pH levels are concerning! 🚨"
+        android:textSize="15sp"
+        android:textColor="@color/text_primary_dark"
+        android:lineSpacingExtra="4dp"
+        android:layout_marginBottom="12dp"/>
+
+    <!-- Sensor Data Badge (if available) -->
+    <LinearLayout
+        android:id="@+id/llSensorData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/status_safe"
+        android:padding="12dp"
+        android:gravity="center"
+        android:layout_marginBottom="12dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@android:drawable/ic_menu_compass"
+            app:tint="@color/safe_green"
+            android:layout_marginEnd="8dp"/>
+
+        <TextView
+            android:id="@+id/tvSensorData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="pH: 7.2 | Temp: 25.5°C"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="@color/safe_green"/>
+
+    </LinearLayout>
+
+    <!-- Post Image - Glass Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvPostImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="@android:color/transparent"
+        android:layout_marginBottom="12dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/ivPostImage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@android:drawable/ic_menu_gallery"
+            android:background="@drawable/card_glass"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Twitter-Style Action Buttons Row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingTop="8dp">
+
+        <!-- Reply Button -->
+        <LinearLayout
+            android:id="@+id/llReplyButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless">
+
+            <ImageView
+                android:id="@+id/ivReplyIcon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@android:drawable/sym_action_chat"
+                app:tint="@color/text_secondary_dark"
+                android:layout_marginEnd="4dp"/>
+
+            <TextView
+                android:id="@+id/tvReplyCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12"
+                android:textSize="12sp"
+                android:textColor="@color/text_secondary_dark"/>
+
+        </LinearLayout>
+
+        <!-- Retweet Button -->
+        <LinearLayout
+            android:id="@+id/llRetweetButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless">
+
+            <ImageView
+                android:id="@+id/ivRetweetIcon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@android:drawable/ic_menu_rotate"
+                app:tint="@color/text_secondary_dark"
+                android:layout_marginEnd="4dp"/>
+
+            <TextView
+                android:id="@+id/tvRetweetCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5"
+                android:textSize="12sp"
+                android:textColor="@color/text_secondary_dark"/>
+
+        </LinearLayout>
+
+        <!-- Like Button -->
+        <LinearLayout
+            android:id="@+id/llLikeButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless">
+
+            <ImageView
+                android:id="@+id/ivLikeIcon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@android:drawable/star_big_off"
+                app:tint="@color/text_secondary_dark"
+                android:layout_marginEnd="4dp"/>
+
+            <TextView
+                android:id="@+id/tvLikeCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="45"
+                android:textSize="12sp"
+                android:textColor="@color/text_secondary_dark"/>
+
+        </LinearLayout>
+
+        <!-- Bookmark Button -->
+        <LinearLayout
+            android:id="@+id/llBookmarkButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless">
+
+            <ImageView
+                android:id="@+id/ivBookmarkIcon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@android:drawable/btn_star_big_off"
+                app:tint="@color/text_secondary_dark"/>
+
+        </LinearLayout>
+
+        <!-- Share Button -->
+        <LinearLayout
+            android:id="@+id/llShareButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless">
+
+            <ImageView
+                android:id="@+id/ivShareIcon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@android:drawable/ic_menu_share"
+                app:tint="@color/text_secondary_dark"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

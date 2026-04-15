@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Premium Dark Background -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_premium_dark"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Main Content Area -->
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <!-- Premium Gradient Hero Header -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:background="@drawable/gradient_header"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="24dp">
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp">
+
+                        <View
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/glow_effect"/>
+
+                        <ImageView
+                            android:layout_width="90dp"
+                            android:layout_height="90dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/logoremoved"
+                            app:tint="@android:color/white"/>
+
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SmartWater"
+                        android:textSize="32sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/white"
+                        android:fontFamily="sans-serif-medium"
+                        android:letterSpacing="0.05"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Monitoring App"
+                        android:textSize="16sp"
+                        android:textColor="@color/text_secondary_dark"/>
+
+                </LinearLayout>
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fillViewport="true"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <!-- Welcome Text -->
+                        <TextView
+                            android:id="@+id/tvWelcome"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Welcome, User! 👋"
+                            android:textSize="22sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary_dark"
+                            android:layout_marginBottom="24dp"/>
+
+                        <!-- Profile Card - Glass -->
+                        <LinearLayout
+                            android:id="@+id/cvProfile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:orientation="horizontal"
+                            android:background="@drawable/card_glass_strong"
+                            android:padding="20dp"
+                            android:gravity="center_vertical"
+                            android:clickable="true"
+                            android:focusable="true">
+
+                            <FrameLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="16dp">
+
+                                <View
+                                    android:layout_width="70dp"
+                                    android:layout_height="70dp"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/glow_effect"/>
+
+                                <LinearLayout
+                                    android:layout_width="56dp"
+                                    android:layout_height="56dp"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/avatar_circle"
+                                    android:gravity="center">
+
+                                    <ImageView
+                                        android:layout_width="36dp"
+                                        android:layout_height="36dp"
+                                        android:src="@android:drawable/ic_menu_myplaces"
+                                        app:tint="@color/primary"/>
+
+                                </LinearLayout>
+
+                            </FrameLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Profile"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/text_primary_dark"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="View and edit your profile"
+                                    android:textSize="14sp"
+                                    android:textColor="@color/text_secondary_dark"/>
+
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="28dp"
+                                android:layout_height="28dp"
+                                android:src="@android:drawable/ic_menu_more"
+                                app:tint="@color/primary"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </ScrollView>
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <!-- Premium Bottom Navigation -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp">
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottom_navigation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/card_glass_strong"
+                android:elevation="0dp"
+                app:menu="@menu/bottom_nav_menu"
+                app:itemIconTint="@color/bottom_nav_color"
+                app:itemTextColor="@color/bottom_nav_color"
+                app:labelVisibilityMode="labeled"/>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

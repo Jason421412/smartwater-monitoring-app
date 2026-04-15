@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/gradient_bg">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/card_glass"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:titleTextColor="@color/text_primary_dark"/>
+
+    <!-- Tab Layout -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabMode="fixed"
+        app:tabGravity="fill"
+        app:tabIndicatorColor="@color/primary"
+        app:tabSelectedTextColor="@color/primary"
+        app:tabTextColor="@color/text_secondary_dark"
+        android:background="@drawable/card_glass">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Followers"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Following"/>
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <!-- Users List -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvUsers"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp"
+        android:clipToPadding="false"/>
+
+    <!-- Empty State -->
+    <LinearLayout
+        android:id="@+id/llEmptyState"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@android:drawable/ic_menu_myplaces"
+            app:tint="@color/text_hint"/>
+
+        <TextView
+            android:id="@+id/tvEmptyMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No users found"
+            android:textSize="16sp"
+            android:textColor="@color/text_secondary_dark"
+            android:layout_marginTop="16dp"/>
+
+    </LinearLayout>
+
+    <!-- Loading -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"/>
+
+</LinearLayout>

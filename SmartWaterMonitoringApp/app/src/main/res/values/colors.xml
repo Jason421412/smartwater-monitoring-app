@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base Colors -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    
+    <!-- ✨ Liquid Glass Primary Colors - Ethereal Blue/Cyan -->
+    <color name="primary">#00D4FF</color>
+    <color name="primary_dark">#00A8CC</color>
+    <color name="primary_light">#5DFDFF</color>
+    <color name="accent">#00FFA3</color>
+    <color name="accent_pink">#FF6B9D</color>
+    
+    <!-- ✨ Clean Blue Gradient Colors -->
+    <color name="gradient_start">#1E88E5</color>
+    <color name="gradient_mid">#1976D2</color>
+    <color name="gradient_end">#1565C0</color>
+    <color name="gradient_dark_start">#0D1B2A</color>
+    <color name="gradient_dark_end">#1B263B</color>
+    
+    <!-- ✨ Liquid Glass Effect Colors - Enhanced Translucency -->
+    <color name="glass_white">#18FFFFFF</color>
+    <color name="glass_white_strong">#30FFFFFF</color>
+    <color name="glass_white_ultra">#50FFFFFF</color>
+    <color name="glass_border">#40FFFFFF</color>
+    <color name="glass_border_glow">#60FFFFFF</color>
+    <color name="glass_dark">#1A1A2E</color>
+    <color name="glass_dark_translucent">#CC1A1A2E</color>
+    <color name="card_glow">#4000D4FF</color>
+    <color name="card_glow_accent">#4000FFA3</color>
+    
+    <!-- ✨ Blue Glow Colors -->
+    <color name="glow_cyan">#5000D4FF</color>
+    <color name="glow_purple">#501976D2</color>
+    <color name="glow_pink">#5042A5F5</color>
+    <color name="glow_green">#5000FFA3</color>
+    
+    <!-- Water Quality Status Colors -->
+    <color name="safe_green">#00FFA3</color>
+    <color name="safe_green_glow">#4000FFA3</color>
+    <color name="moderate_orange">#FFB347</color>
+    <color name="moderate_orange_glow">#40FFB347</color>
+    <color name="polluted_red">#FF6B6B</color>
+    <color name="polluted_red_glow">#40FF6B6B</color>
+    
+    <!-- ✨ Liquid Glass Background Colors -->
+    <color name="background_dark">#0A0A14</color>
+    <color name="background_light">#FAFAFA</color>
+    <color name="background">#FAFAFA</color>
+    <color name="card_background">#FFFFFF</color>
+    <color name="card_background_dark">#18182B</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="surface_glass">#12121F</color>
+    
+    <!-- Text Colors -->
+    <color name="text_primary">#212121</color>
+    <color name="text_primary_dark">#FFFFFF</color>
+    <color name="text_secondary">#757575</color>
+    <color name="text_secondary_dark">#A0A8B8</color>
+    <color name="text_hint">#6B7280</color>
+    <color name="text_on_gradient">#FFFFFF</color>
+    
+    <!-- Divider & Border -->
+    <color name="divider">#20FFFFFF</color>
+    <color name="border_light">#30FFFFFF</color>
+    <color name="border_accent">#00D4FF</color>
+    
+    <!-- ✨ Clean Blue Button Colors -->
+    <color name="button_gradient_start">#1E88E5</color>
+    <color name="button_gradient_end">#1565C0</color>
+    <color name="button_secondary">#20FFFFFF</color>
+    
+    <!-- Overlay Colors -->
+    <color name="overlay_dark">#80000000</color>
+    <color name="ripple_color">#3000D4FF</color>
+</resources>

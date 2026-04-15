@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Premium Dark Background -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_premium_dark"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Premium Gradient Header with Connection Status -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gradient_header"
+            android:orientation="vertical"
+            android:paddingBottom="24dp"
+            android:elevation="8dp">
+
+            <!-- Top Bar -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp">
+
+                <ImageButton
+                    android:id="@+id/btnBack"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@android:drawable/ic_menu_revert"
+                    app:tint="@android:color/white"
+                    android:contentDescription="Back"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="📡 Bluetooth"
+                    android:textSize="22sp"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-medium"
+                    android:paddingStart="12dp"/>
+
+                <ImageButton
+                    android:id="@+id/btnProfileIcon"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:src="@android:drawable/ic_menu_myplaces"
+                    android:background="@drawable/card_glass"
+                    android:padding="10dp"
+                    app:tint="@android:color/white"
+                    android:layout_marginEnd="8dp"
+                    android:contentDescription="Profile"/>
+
+                <ImageButton
+                    android:id="@+id/btnLogoutIcon"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:src="@android:drawable/ic_lock_power_off"
+                    android:background="@drawable/card_glass"
+                    android:padding="10dp"
+                    app:tint="@android:color/white"
+                    android:contentDescription="Logout"/>
+
+            </LinearLayout>
+
+            <!-- Connection Status Card in Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/card_glass"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:padding="20dp"
+                android:gravity="center_vertical">
+
+                <!-- Status Indicator with Glow -->
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp">
+
+                    <View
+                        android:id="@+id/statusIndicator"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/glow_effect"/>
+
+                    <ImageView
+                        android:id="@+id/ivConnectionStatus"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:layout_gravity="center"
+                        android:src="@android:drawable/stat_sys_data_bluetooth"
+                        app:tint="@color/primary"/>
+
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CONNECTION STATUS"
+                        android:textSize="11sp"
+                        android:textColor="@color/text_hint"
+                        android:letterSpacing="0.1"/>
+
+                    <TextView
+                        android:id="@+id/tvConnectionStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Not Connected"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/white"/>
+
+                    <TextView
+                        android:id="@+id/tvDeviceName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No device"
+                        android:textSize="13sp"
+                        android:textColor="@color/text_hint"
+                        android:visibility="gone"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Scrollable Content -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fillViewport="true"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <!-- Scan Button - Elevated -->
+                <Button
+                    android:id="@+id/btnScanDevices"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:text="🔍 SCAN FOR DEVICES"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:background="@drawable/btn_elevated"
+                    android:stateListAnimator="@null"
+                    android:layout_marginBottom="20dp"/>
+
+                <!-- Available Devices Card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/card_glass_strong"
+                    android:padding="24dp"
+                    android:layout_marginBottom="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="📱 Available Devices"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary_dark"/>
+
+                        <ProgressBar
+                            android:id="@+id/pbScanning"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:visibility="gone"/>
+
+                    </LinearLayout>
+
+                    <ListView
+                        android:id="@+id/lvBluetoothDevices"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0dp"/>
+
+                    <TextView
+                        android:id="@+id/tvNoDevices"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="No devices found. Tap Scan to search."
+                        android:textSize="14sp"
+                        android:textColor="@color/text_hint"
+                        android:gravity="center"
+                        android:padding="24dp"/>
+
+                </LinearLayout>
+
+                <!-- Live Sensor Data Card -->
+                <LinearLayout
+                    android:id="@+id/cardSensorData"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/floating_card"
+                    android:padding="24dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="📊 LIVE SENSOR DATA"
+                        android:textSize="12sp"
+                        android:textColor="@color/text_hint"
+                        android:letterSpacing="0.1"
+                        android:layout_marginBottom="20dp"/>
+
+                    <!-- pH Reading -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:background="@drawable/card_glass"
+                        android:padding="16dp"
+                        android:layout_marginBottom="12dp">
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="16dp">
+
+                            <View
+                                android:layout_width="56dp"
+                                android:layout_height="56dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/glow_effect"/>
+
+                            <TextView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_gravity="center"
+                                android:text="💧"
+                                android:textSize="24sp"
+                                android:gravity="center"/>
+
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="pH Level"
+                                android:textSize="14sp"
+                                android:textColor="@color/text_secondary_dark"/>
+
+                            <TextView
+                                android:id="@+id/tvPhValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="--"
+                                android:textSize="32sp"
+                                android:textStyle="bold"
+                                android:textColor="@android:color/white"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- Temperature Reading -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:background="@drawable/card_glass"
+                        android:padding="16dp">
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="16dp">
+
+                            <View
+                                android:layout_width="56dp"
+                                android:layout_height="56dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/glow_effect"/>
+
+                            <TextView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_gravity="center"
+                                android:text="🌡️"
+                                android:textSize="24sp"
+                                android:gravity="center"/>
+
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Temperature"
+                                android:textSize="14sp"
+                                android:textColor="@color/text_secondary_dark"/>
+
+                            <TextView
+                                android:id="@+id/tvTemperatureValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="--"
+                                android:textSize="32sp"
+                                android:textStyle="bold"
+                                android:textColor="@android:color/white"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- Disconnect Button (when connected) -->
+                <Button
+                    android:id="@+id/btnDisconnect"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:text="⛔ DISCONNECT"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textAllCaps="false"
+                    android:textColor="@color/polluted_red"
+                    android:background="@drawable/card_glass_strong"
+                    android:stateListAnimator="@null"
+                    android:layout_marginTop="20dp"
+                    android:visibility="gone"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <!-- Premium Floating Bottom Navigation -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp">
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottom_navigation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/card_glass_strong"
+                android:elevation="0dp"
+                app:menu="@menu/bottom_nav_menu"
+                app:itemIconTint="@color/bottom_nav_color"
+                app:itemTextColor="@color/bottom_nav_color"
+                app:labelVisibilityMode="labeled"/>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

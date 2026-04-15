@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/gradient_bg">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/card_glass"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:title="Bookmarks"
+        app:titleTextColor="@color/text_primary_dark"/>
+
+    <!-- Bookmarks List -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvBookmarks"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp"
+        android:clipToPadding="false"/>
+
+    <!-- Empty State -->
+    <LinearLayout
+        android:id="@+id/llEmptyState"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@android:drawable/btn_star_big_off"
+            app:tint="@color/text_hint"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save posts for later"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary_dark"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bookmark posts to easily find them later"
+            android:textSize="14sp"
+            android:textColor="@color/text_secondary_dark"
+            android:layout_marginTop="8dp"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+    <!-- Loading -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"/>
+
+</LinearLayout>

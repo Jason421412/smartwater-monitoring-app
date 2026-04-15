@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/gradient_bg">
+
+    <!-- Search Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/card_glass"
+        android:padding="12dp"
+        android:gravity="center_vertical">
+
+        <!-- Back Button -->
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="8dp"
+            android:src="@drawable/ic_arrow_back"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <!-- Search Input -->
+        <EditText
+            android:id="@+id/etSearch"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/search_input_bg"
+            android:hint="Search posts..."
+            android:textColorHint="@color/text_hint"
+            android:textColor="@color/text_primary_dark"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:inputType="text"
+            android:imeOptions="actionSearch"
+            android:singleLine="true"/>
+
+        <!-- Search Button -->
+        <ImageView
+            android:id="@+id/ivSearch"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="8dp"
+            android:src="@android:drawable/ic_menu_search"
+            app:tint="@color/primary"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"/>
+
+    </LinearLayout>
+
+    <!-- Search Results / Recent Searches -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSearchResults"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp"
+        android:clipToPadding="false"/>
+
+    <!-- Empty State -->
+    <LinearLayout
+        android:id="@+id/llEmptyState"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="visible">
+
+        <ImageView
+            android:id="@+id/ivEmptyIcon"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@android:drawable/ic_menu_search"
+            app:tint="@color/text_hint"/>
+
+        <TextView
+            android:id="@+id/tvEmptyTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search SmartWater"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary_dark"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:id="@+id/tvEmptyMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search for posts, hashtags, or topics"
+            android:textSize="14sp"
+            android:textColor="@color/text_secondary_dark"
+            android:layout_marginTop="8dp"/>
+
+    </LinearLayout>
+
+    <!-- Loading -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"/>
+
+</LinearLayout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ✨ Liquid Glass Bottom Navigation Bar -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <!-- Top border glow -->
+    <item android:bottom="-1dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="linear"
+                android:angle="0"
+                android:startColor="#3000D4FF"
+                android:centerColor="#30667EEA"
+                android:endColor="#30F953C6"/>
+            <size android:height="1dp"/>
+        </shape>
+    </item>
+    
+    <!-- Glass surface -->
+    <item android:top="1dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="linear"
+                android:angle="135"
+                android:startColor="#E00D0D1A"
+                android:endColor="#E0121220"/>
+        </shape>
+    </item>
+    
+</layer-list>

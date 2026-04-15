@@ -1,0 +1,53 @@
+name: smart_water_monitor
+description: "Flutter Add-to-App module for the SmartWater real-time water quality monitoring Android app."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.10.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Icons
+  cupertino_icons: ^1.0.8
+
+  # HTTP client for API calls
+  http: ^1.1.0
+
+  # State management
+  provider: ^6.1.1
+
+  # Charts for history visualization
+  fl_chart: ^0.65.0
+
+  # Date formatting
+  intl: ^0.18.1
+
+  # Glass morphism effects
+  glassmorphism: ^3.0.0
+
+  # Animated text for number rolling
+  animated_text_kit: ^4.2.2
+
+  # Timer for polling / async utilities
+  async: ^2.11.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  # 如果以后你真的加了 Flutter assets（图片/json/font），再取消注释并写路径
+  # assets:
+  #   - assets/
+
+  module:
+    androidX: true
+    androidPackage: com.example.smartwater_flutter
+    iosBundleIdentifier: com.example.smartwaterFlutter

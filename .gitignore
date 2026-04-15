@@ -1,0 +1,45 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+#  SmartWater Monitoring App — Root .gitignore
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# ─── Operating System ─────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+desktop.ini
+ehthumbs.db
+
+# ─── IntelliJ / Android Studio (root project) ────────────────────────────────
+.idea/
+*.iml
+.vscode/
+
+# ─── Personal / generated documents ──────────────────────────────────────────
+*_Resume_Analysis.md
+*_resume_analysis.md
+
+# ─── Android build artifacts ──────────────────────────────────────────────────
+**/build/
+**/.gradle/
+**/local.properties
+**/captures/
+**/.externalNativeBuild/
+**/.cxx/
+
+# ─── Flutter / Dart generated ─────────────────────────────────────────────────
+**/.dart_tool/
+**/.pub/
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+**/.metadata
+**/app.*.symbols
+**/app.*.map.json
+
+# ─── Optional doc junk ────────────────────────────────────────────────────────
+docs/screenshots/README.md
+
+# ─── Secrets / signing (never commit) ─────────────────────────────────────────
+# google-services.json
+# keystore.jks
+# key.properties

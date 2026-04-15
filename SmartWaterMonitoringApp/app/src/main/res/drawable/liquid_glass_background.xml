@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ✨ Liquid Glass Background - Animated mesh gradient effect -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <!-- Base dark layer -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="linear"
+                android:angle="135"
+                android:startColor="#0A0A14"
+                android:centerColor="#0D0D1A"
+                android:endColor="#12121F"/>
+        </shape>
+    </item>
+    
+    <!-- Cyan blob (top-right) -->
+    <item android:top="-100dp" android:right="-50dp">
+        <shape android:shape="oval">
+            <size android:width="300dp" android:height="300dp"/>
+            <gradient
+                android:type="radial"
+                android:gradientRadius="150dp"
+                android:centerX="0.5"
+                android:centerY="0.5"
+                android:startColor="#3000D4FF"
+                android:endColor="#00000000"/>
+        </shape>
+    </item>
+    
+    <!-- Purple blob (center-left) -->
+    <item android:top="200dp" android:left="-100dp">
+        <shape android:shape="oval">
+            <size android:width="350dp" android:height="350dp"/>
+            <gradient
+                android:type="radial"
+                android:gradientRadius="175dp"
+                android:centerX="0.5"
+                android:centerY="0.5"
+                android:startColor="#251976D2"
+                android:endColor="#00000000"/>
+        </shape>
+    </item>
+    
+    <!-- Pink blob (bottom-right) -->
+    <item android:bottom="-50dp" android:right="-80dp">
+        <shape android:shape="oval">
+            <size android:width="280dp" android:height="280dp"/>
+            <gradient
+                android:type="radial"
+                android:gradientRadius="140dp"
+                android:centerX="0.5"
+                android:centerY="0.5"
+                android:startColor="#2042A5F5"
+                android:endColor="#00000000"/>
+        </shape>
+    </item>
+    
+    <!-- Green accent blob (bottom-left) -->
+    <item android:bottom="100dp" android:left="-60dp">
+        <shape android:shape="oval">
+            <size android:width="200dp" android:height="200dp"/>
+            <gradient
+                android:type="radial"
+                android:gradientRadius="100dp"
+                android:centerX="0.5"
+                android:centerY="0.5"
+                android:startColor="#1800FFA3"
+                android:endColor="#00000000"/>
+        </shape>
+    </item>
+    
+</layer-list>

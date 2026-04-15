@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="12dp"
+    android:background="@drawable/card_glass"
+    android:layout_marginBottom="8dp">
+
+    <!-- Profile Picture with Glow -->
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp">
+
+        <View
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:background="@drawable/glow_effect"/>
+
+        <LinearLayout
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:background="@drawable/avatar_circle"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/ivReplyProfile"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@android:drawable/ic_menu_myplaces"
+                app:tint="@color/primary"/>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <!-- Reply Content -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <!-- Author Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="4dp">
+
+            <TextView
+                android:id="@+id/tvReplyAuthor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="John Doe"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary_dark"/>
+
+            <!-- Expert Badge -->
+            <TextView
+                android:id="@+id/tvExpertBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔬 Expert"
+                android:textSize="10sp"
+                android:textColor="@android:color/white"
+                android:background="@drawable/btn_gradient"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="2dp"
+                android:layout_marginStart="8dp"
+                android:visibility="gone"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/tvReplyTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2h"
+                android:textSize="12sp"
+                android:textColor="@color/text_hint"/>
+
+        </LinearLayout>
+
+        <!-- Reply Text -->
+        <TextView
+            android:id="@+id/tvReplyContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="This is a reply content..."
+            android:textSize="14sp"
+            android:textColor="@color/text_primary_dark"
+            android:lineSpacingExtra="3dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

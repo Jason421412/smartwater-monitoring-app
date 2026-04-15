@@ -1,0 +1,699 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- ✨ Liquid Glass Background -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/liquid_glass_background"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Premium Gradient Header with Stats -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gradient_header"
+            android:orientation="vertical"
+            android:paddingBottom="24dp"
+            android:elevation="8dp">
+
+            <!-- Top Bar -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp">
+
+                <!-- App Name with Icon -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:src="@drawable/logoremoved"
+                        app:tint="@android:color/white"
+                        android:layout_marginEnd="12dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SmartWater"
+                        android:textSize="22sp"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-medium"/>
+
+                </LinearLayout>
+
+                <!-- Profile Icon -->
+                <FrameLayout
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:layout_marginEnd="8dp">
+
+                    <ImageButton
+                        android:id="@+id/btnProfileIcon"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@android:drawable/ic_menu_myplaces"
+                        android:background="@drawable/liquid_glass_card"
+                        android:padding="10dp"
+                        app:tint="@android:color/white"
+                        android:contentDescription="Profile"/>
+
+                </FrameLayout>
+
+                <!-- Logout Icon -->
+                <FrameLayout
+                    android:layout_width="44dp"
+                    android:layout_height="44dp">
+
+                    <ImageButton
+                        android:id="@+id/btnLogoutIcon"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@android:drawable/ic_lock_power_off"
+                        android:background="@drawable/liquid_glass_card"
+                        android:padding="10dp"
+                        app:tint="@android:color/white"
+                        android:contentDescription="Logout"/>
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <!-- Quick Stats Row in Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="20dp"
+                android:baselineAligned="false">
+
+                <!-- pH Quick Stat -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:background="@drawable/liquid_glass_status"
+                    android:padding="16dp"
+                    android:gravity="center"
+                    android:layout_marginEnd="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="💧 pH"
+                        android:textSize="12sp"
+                        android:textColor="@android:color/white"/>
+
+                    <TextView
+                        android:id="@+id/tvQuickPh"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="—"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/white"/>
+
+                </LinearLayout>
+
+                <!-- Temp Quick Stat -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:background="@drawable/liquid_glass_status"
+                    android:padding="16dp"
+                    android:gravity="center"
+                    android:layout_marginHorizontal="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🌡️ Temp"
+                        android:textSize="12sp"
+                        android:textColor="@android:color/white"/>
+
+                    <TextView
+                        android:id="@+id/tvQuickTemp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="—"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/white"/>
+
+                </LinearLayout>
+
+                <!-- Status Quick Stat -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:background="@drawable/liquid_glass_status"
+                    android:padding="16dp"
+                    android:gravity="center"
+                    android:layout_marginStart="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="📊 Status"
+                        android:textSize="12sp"
+                        android:textColor="@android:color/white"/>
+
+                    <TextView
+                        android:id="@+id/tvQuickStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="—"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/white"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Main Content -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fillViewport="true"
+            android:scrollbars="none"
+            android:clipToPadding="false">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:paddingBottom="100dp">
+
+                <!-- Water Quality Hero Card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="vertical"
+                    android:background="@drawable/liquid_glass_card"
+                    android:padding="24dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <!-- Multi-Glow Status Indicator -->
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="20dp">
+
+                            <View
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:background="@drawable/multi_glow"/>
+
+                            <ImageView
+                                android:id="@+id/ivQualityIcon"
+                                android:layout_width="56dp"
+                                android:layout_height="56dp"
+                                android:layout_gravity="center"
+                                android:src="@android:drawable/btn_star_big_on"
+                                app:tint="@android:color/white"/>
+
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="WATER QUALITY"
+                                android:textSize="12sp"
+                                android:textColor="@color/text_secondary_dark"
+                                android:letterSpacing="0.1"/>
+
+                            <TextView
+                                android:id="@+id/tvQualityStatus"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="SAFE ✓"
+                                android:textSize="32sp"
+                                android:textStyle="bold"
+                                android:textColor="@android:color/white"/>
+
+                            <TextView
+                                android:id="@+id/tvQualityDescription"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Water is safe for all uses"
+                                android:textSize="14sp"
+                                android:textColor="@color/text_secondary_dark"
+                                android:layout_marginTop="4dp"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- Current Readings Detail Card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="vertical"
+                    android:background="@drawable/liquid_glass_card_strong"
+                    android:padding="24dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="📊 Sensor Readings"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary_dark"
+                        android:layout_marginBottom="20dp"/>
+
+                    <!-- pH Reading with Progress -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/liquid_glass_card"
+                        android:padding="16dp"
+                        android:layout_marginBottom="12dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="💧 pH Level"
+                                android:textSize="14sp"
+                                android:textColor="@color/text_secondary_dark"/>
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"/>
+
+                            <TextView
+                                android:id="@+id/tvCurrentPh"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="—"
+                                android:textSize="28sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/text_secondary_dark"/>
+
+                        </LinearLayout>
+
+                        <ProgressBar
+                            android:id="@+id/pbPhLevel"
+                            style="@android:style/Widget.ProgressBar.Horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="8dp"
+                            android:layout_marginTop="12dp"
+                            android:progress="50"
+                            android:max="100"
+                            android:progressDrawable="@drawable/gradient_accent"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Safe range: 6.5 - 8.5"
+                            android:textSize="11sp"
+                            android:textColor="@color/text_hint"
+                            android:layout_marginTop="8dp"/>
+
+                    </LinearLayout>
+
+                    <!-- Temperature Reading with Progress -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/liquid_glass_card"
+                        android:padding="16dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="🌡️ Temperature"
+                                android:textSize="14sp"
+                                android:textColor="@color/text_secondary_dark"/>
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"/>
+
+                            <TextView
+                                android:id="@+id/tvCurrentTemp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="—"
+                                android:textSize="28sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/text_secondary_dark"/>
+
+                        </LinearLayout>
+
+                        <ProgressBar
+                            style="@android:style/Widget.ProgressBar.Horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="8dp"
+                            android:layout_marginTop="12dp"
+                            android:progress="60"
+                            android:max="100"
+                            android:progressDrawable="@drawable/gradient_accent"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Optimal range: 20°C - 30°C"
+                            android:textSize="11sp"
+                            android:textColor="@color/text_hint"
+                            android:layout_marginTop="8dp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- Quick Actions Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="20dp"
+                    android:baselineAligned="false">
+
+                    <!-- Advanced Dashboard Button -->
+                    <LinearLayout
+                        android:id="@+id/btnOpenFlutter"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:background="@drawable/btn_elevated"
+                        android:padding="20dp"
+                        android:layout_marginEnd="8dp"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🚀"
+                            android:textSize="28sp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Advanced"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/white"
+                            android:layout_marginTop="8dp"/>
+
+                    </LinearLayout>
+
+                    <!-- Connect Device Button -->
+                    <LinearLayout
+                        android:id="@+id/btnConnectDevice"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:background="@drawable/liquid_glass_card_strong"
+                        android:padding="20dp"
+                        android:layout_marginStart="8dp"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="📡"
+                            android:textSize="28sp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Connect"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary_dark"
+                            android:layout_marginTop="8dp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- Charts Card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="vertical"
+                    android:background="@drawable/liquid_glass_card_strong"
+                    android:padding="24dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="📈 Historical Trends"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary_dark"
+                        android:layout_marginBottom="12dp"/>
+
+                    <!-- Time Range Selector -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@drawable/liquid_glass_card"
+                        android:padding="4dp"
+                        android:layout_marginBottom="12dp">
+
+                        <TextView
+                            android:id="@+id/btnRange1h"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="1H"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_secondary_dark"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:clickable="true"
+                            android:focusable="true"/>
+
+                        <TextView
+                            android:id="@+id/btnRange24h"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="24H"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/white"
+                            android:background="@drawable/liquid_glass_tab"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:clickable="true"
+                            android:focusable="true"/>
+
+                        <TextView
+                            android:id="@+id/btnRange7d"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="7D"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_secondary_dark"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:clickable="true"
+                            android:focusable="true"/>
+
+                        <TextView
+                            android:id="@+id/btnRange30d"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="30D"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_secondary_dark"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:clickable="true"
+                            android:focusable="true"/>
+
+                    </LinearLayout>
+
+                    <!-- Tab Selector -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@drawable/liquid_glass_card"
+                        android:padding="4dp"
+                        android:layout_marginBottom="16dp">
+
+                        <TextView
+                            android:id="@+id/tabPh"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="pH"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/white"
+                            android:background="@drawable/liquid_glass_tab"
+                            android:gravity="center"
+                            android:padding="12dp"
+                            android:clickable="true"
+                            android:focusable="true"/>
+
+                        <TextView
+                            android:id="@+id/tabTemperature"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Temperature"
+                            android:textSize="14sp"
+                            android:textColor="@color/text_secondary_dark"
+                            android:gravity="center"
+                            android:padding="12dp"
+                            android:clickable="true"
+                            android:focusable="true"/>
+
+                    </LinearLayout>
+
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/phChart"
+                        android:layout_width="match_parent"
+                        android:layout_height="220dp"/>
+
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/temperatureChart"
+                        android:layout_width="match_parent"
+                        android:layout_height="220dp"
+                        android:visibility="gone"/>
+
+                </LinearLayout>
+
+                <!-- Recent Sessions Card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/liquid_glass_card_strong"
+                    android:padding="24dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="🕒 Recent Sessions"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary_dark"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="View All →"
+                            android:textSize="13sp"
+                            android:textColor="@color/primary"/>
+
+                    </LinearLayout>
+
+                    <ListView
+                        android:id="@+id/lvRecentSessions"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="0dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <!-- Premium Floating Bottom Navigation -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp">
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottom_navigation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/liquid_glass_card_strong"
+                android:elevation="0dp"
+                app:menu="@menu/bottom_nav_menu"
+                app:itemIconTint="@color/bottom_nav_color"
+                app:itemTextColor="@color/bottom_nav_color"
+                app:labelVisibilityMode="labeled"/>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

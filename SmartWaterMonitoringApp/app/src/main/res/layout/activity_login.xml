@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- ✨ Liquid Glass Background -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/liquid_glass_background"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="32dp">
+
+            <!-- Logo Area with Multi-Glow Effect -->
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="24dp">
+
+                <!-- Multi-layer Glow Behind Logo -->
+                <View
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/multi_glow"/>
+
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/logoremoved"
+                    app:tint="@color/primary"/>
+
+            </FrameLayout>
+
+            <!-- App Title with Gradient Style -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SmartWater"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary_dark"
+                android:fontFamily="sans-serif-black"
+                android:letterSpacing="0.05"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Monitor"
+                android:textSize="20sp"
+                android:textColor="@color/text_secondary_dark"
+                android:fontFamily="sans-serif-light"
+                android:letterSpacing="0.1"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- Tagline -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Real-time water quality monitoring"
+                android:textSize="14sp"
+                android:textColor="@color/text_hint"
+                android:layout_marginBottom="48dp"/>
+
+            <!-- Glass Card Login Form -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/liquid_glass_card_strong"
+                android:padding="28dp">
+
+                <!-- Welcome Back Text -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Welcome Back 👋"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary_dark"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sign in to continue monitoring"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_secondary_dark"
+                    android:layout_marginBottom="28dp"/>
+
+                <!-- Email Input -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Email"
+                    android:layout_marginBottom="20dp"
+                    style="@style/ModernTextInput"
+                    app:boxBackgroundMode="outline"
+                    app:boxStrokeColor="@color/primary"
+                    app:hintTextColor="@color/primary"
+                    app:startIconDrawable="@android:drawable/ic_dialog_email"
+                    app:startIconTint="@color/primary">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etLoginEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress"
+                        android:textColor="@color/text_primary_dark"
+                        android:textColorHint="@color/text_hint"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Password Input -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Password"
+                    android:layout_marginBottom="12dp"
+                    style="@style/ModernTextInput"
+                    app:boxBackgroundMode="outline"
+                    app:boxStrokeColor="@color/primary"
+                    app:hintTextColor="@color/primary"
+                    app:endIconMode="password_toggle"
+                    app:endIconTint="@color/primary"
+                    app:startIconDrawable="@android:drawable/ic_lock_idle_lock"
+                    app:startIconTint="@color/primary">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etLoginPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:textColor="@color/text_primary_dark"
+                        android:textColorHint="@color/text_hint"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Forgot Password -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:text="Forgot Password?"
+                    android:textSize="13sp"
+                    android:textColor="@color/primary"
+                    android:layout_marginBottom="28dp"/>
+
+                <!-- Login Button with 3D Effect -->
+                <Button
+                    android:id="@+id/btnLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="🚀 LOGIN"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:background="@drawable/liquid_glass_button"
+                    android:stateListAnimator="@null"/>
+
+            </LinearLayout>
+
+            <!-- Register Link -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="32dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Don't have an account? "
+                    android:textSize="14sp"
+                    android:textColor="@color/text_secondary_dark"/>
+
+                <TextView
+                    android:id="@+id/tvRegisterLink"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Register →"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/primary"
+                    android:clickable="true"
+                    android:focusable="true"/>
+
+            </LinearLayout>
+
+            <!-- Server Status (Tap to configure) -->
+            <TextView
+                android:id="@+id/tvServerStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Server: ..."
+                android:textSize="11sp"
+                android:textColor="@color/text_hint"
+                android:layout_marginTop="24dp"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground"
+                android:padding="8dp"/>
+
+            <!-- Version Info -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="v2.0 | Long-press LOGIN to configure server"
+                android:textSize="11sp"
+                android:textColor="@color/text_hint"
+                android:layout_marginTop="8dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>

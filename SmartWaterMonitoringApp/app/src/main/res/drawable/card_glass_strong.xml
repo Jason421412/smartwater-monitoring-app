@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Subtle shadow -->
+    <item android:bottom="3dp" android:right="3dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#15000000"/>
+            <corners android:radius="24dp"/>
+        </shape>
+    </item>
+    
+    <!-- Glass background - slightly more opaque -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#35FFFFFF"/>
+            <corners android:radius="24dp"/>
+            <stroke
+                android:width="1.5dp"
+                android:color="#40FFFFFF"/>
+        </shape>
+    </item>
+</layer-list>

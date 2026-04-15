@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Premium Dark Background -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_premium_dark"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Glass Header Bar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:background="@drawable/card_glass_strong"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="12dp"
+            android:elevation="4dp">
+
+            <ImageButton
+                android:id="@+id/btnBackCreatePost"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@android:drawable/ic_menu_close_clear_cancel"
+                app:tint="@color/text_primary_dark"
+                android:contentDescription="Close"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <Button
+                android:id="@+id/btnCreatePost"
+                android:layout_width="wrap_content"
+                android:layout_height="44dp"
+                android:text="Post"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:paddingHorizontal="28dp"
+                android:background="@drawable/btn_gradient_pill"
+                android:stateListAnimator="@null"/>
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fillViewport="true"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <!-- User Info Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="16dp">
+
+                    <!-- Profile Avatar with Glow -->
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp">
+
+                        <View
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/glow_effect"/>
+
+                        <LinearLayout
+                            android:layout_width="52dp"
+                            android:layout_height="52dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/avatar_circle"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:id="@+id/ivUserAvatar"
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:src="@android:drawable/ic_menu_myplaces"
+                                app:tint="@color/primary"/>
+
+                        </LinearLayout>
+
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvUserName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Username"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary_dark"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🌍 Public"
+                            android:textSize="13sp"
+                            android:textColor="@color/primary"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- Post Content - Glass Card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/card_glass"
+                    android:padding="20dp"
+                    android:layout_marginBottom="16dp">
+
+                    <EditText
+                        android:id="@+id/etPostContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="140dp"
+                        android:hint="What's happening with water quality? 💧"
+                        android:textSize="18sp"
+                        android:textColor="@color/text_primary_dark"
+                        android:textColorHint="@color/text_hint"
+                        android:background="@android:color/transparent"
+                        android:gravity="top"
+                        android:inputType="textMultiLine"/>
+
+                </LinearLayout>
+
+                <!-- Photo Preview Card -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvPhotoPreview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="@android:color/transparent"
+                    android:layout_marginBottom="16dp"
+                    android:visibility="gone">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/card_glass">
+
+                        <ImageView
+                            android:id="@+id/ivPhotoPreview"
+                            android:layout_width="match_parent"
+                            android:layout_height="220dp"
+                            android:scaleType="centerCrop"/>
+
+                        <ImageButton
+                            android:id="@+id/btnRemovePhoto"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_gravity="top|end"
+                            android:layout_margin="12dp"
+                            android:background="@drawable/card_glass"
+                            android:src="@android:drawable/ic_menu_close_clear_cancel"
+                            android:padding="8dp"
+                            app:tint="@color/polluted_red"
+                            android:contentDescription="Remove photo"/>
+
+                    </FrameLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- Location Input - Glass -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/card_glass"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginBottom="16dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@android:drawable/ic_menu_mylocation"
+                        app:tint="@color/primary"
+                        android:layout_marginEnd="12dp"/>
+
+                    <EditText
+                        android:id="@+id/etPostLocation"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:hint="Add location..."
+                        android:textSize="15sp"
+                        android:textColor="@color/text_primary_dark"
+                        android:textColorHint="@color/text_hint"
+                        android:background="@android:color/transparent"/>
+
+                    <ImageButton
+                        android:id="@+id/btnOpenMap"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@android:drawable/ic_dialog_map"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        app:tint="@color/primary"
+                        android:tooltipText="Select on Map"/>
+
+                </LinearLayout>
+
+                <!-- Sensor Data Badge - Glass -->
+                <LinearLayout
+                    android:id="@+id/llSensorData"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/status_safe"
+                    android:padding="16dp"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="16dp"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@android:drawable/ic_menu_compass"
+                        app:tint="@color/safe_green"
+                        android:layout_marginEnd="12dp"/>
+
+                    <TextView
+                        android:id="@+id/tvSensorDataStatus"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="pH: 7.2 | Temp: 25.5°C"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/safe_green"/>
+
+                    <ImageButton
+                        android:id="@+id/btnRemoveSensor"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:src="@android:drawable/ic_menu_close_clear_cancel"
+                        app:tint="@color/text_hint"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <!-- Bottom Action Bar - Glass -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="20dp"
+            android:background="@drawable/card_glass_strong"
+            android:elevation="8dp">
+
+            <!-- Photo Button -->
+            <ImageButton
+                android:id="@+id/btnAddPhoto"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@android:drawable/ic_menu_gallery"
+                app:tint="@color/primary"
+                android:contentDescription="Add photo"/>
+
+            <!-- Sensor Data Button -->
+            <ImageButton
+                android:id="@+id/btnAddSensorData"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@android:drawable/ic_menu_compass"
+                app:tint="@color/primary"
+                android:contentDescription="Add sensor data"/>
+
+            <!-- Hashtag Button -->
+            <ImageButton
+                android:id="@+id/btnAddHashtag"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@android:drawable/ic_menu_sort_by_size"
+                app:tint="@color/primary"
+                android:contentDescription="Add hashtag"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <!-- Character Count -->
+            <TextView
+                android:id="@+id/tvCharCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="280"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/primary"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

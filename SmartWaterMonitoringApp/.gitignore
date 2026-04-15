@@ -1,0 +1,26 @@
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# ─── Android Studio user-specific state (not shareable) ──────────────────────
+/.idea/deploymentTargetSelector.xml
+/.idea/deviceManager.xml
+/.idea/studiobot.xml
+/.idea/runConfigurations.xml
+/.idea/.name
+
+# ─── Personal / generated documents (not for public repos) ───────────────────
+/SmartWater_Resume_Analysis.md
+*_Resume_Analysis.md

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ✨ Liquid Glass Header - Translucent gradient header -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <!-- Base gradient -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="linear"
+                android:angle="135"
+                android:startColor="#CC1E88E5"
+                android:centerColor="#CC1976D2"
+                android:endColor="#CC1565C0"/>
+        </shape>
+    </item>
+    
+    <!-- Glass overlay -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="linear"
+                android:angle="90"
+                android:startColor="#00FFFFFF"
+                android:endColor="#10FFFFFF"/>
+        </shape>
+    </item>
+    
+    <!-- Bottom glow line -->
+    <item android:top="0dp" android:left="0dp" android:right="0dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="linear"
+                android:angle="0"
+                android:startColor="#00FFFFFF"
+                android:centerColor="#30FFFFFF"
+                android:endColor="#00FFFFFF"/>
+            <size android:height="1dp"/>
+        </shape>
+    </item>
+    
+</layer-list>

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Premium Dark Background -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_premium_dark"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Premium Gradient Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:background="@drawable/gradient_header"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="8dp"
+            android:paddingEnd="20dp"
+            android:elevation="8dp">
+
+            <ImageButton
+                android:id="@+id/btnBackSubmitReport"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@android:drawable/ic_menu_revert"
+                app:tint="@android:color/white"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="📝 Submit Report"
+                android:textSize="22sp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-medium"
+                android:paddingStart="8dp"/>
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <!-- Form Card - Glass -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/card_glass_strong"
+                    android:padding="24dp">
+
+                    <!-- Title Input -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Report Title"
+                        android:layout_marginBottom="20dp"
+                        style="@style/ModernTextInput"
+                        app:boxBackgroundMode="outline"
+                        app:boxStrokeColor="@color/primary"
+                        app:hintTextColor="@color/primary"
+                        app:startIconDrawable="@android:drawable/ic_menu_edit"
+                        app:startIconTint="@color/primary">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etReportTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_primary_dark"
+                            android:textColorHint="@color/text_hint"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Description Input -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Description"
+                        android:layout_marginBottom="20dp"
+                        style="@style/ModernTextInput"
+                        app:boxBackgroundMode="outline"
+                        app:boxStrokeColor="@color/primary"
+                        app:hintTextColor="@color/primary">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etReportDescription"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minLines="4"
+                            android:gravity="top"
+                            android:textColor="@color/text_primary_dark"
+                            android:textColorHint="@color/text_hint"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Location Input -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilReportLocation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Location"
+                        android:layout_marginBottom="24dp"
+                        style="@style/ModernTextInput"
+                        app:boxBackgroundMode="outline"
+                        app:boxStrokeColor="@color/primary"
+                        app:hintTextColor="@color/primary"
+                        app:endIconMode="custom"
+                        app:endIconDrawable="@android:drawable/ic_dialog_map"
+                        app:endIconTint="@color/primary"
+                        app:startIconDrawable="@android:drawable/ic_menu_mylocation"
+                        app:startIconTint="@color/primary">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etReportLocation"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_primary_dark"
+                            android:textColorHint="@color/text_hint"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Photo Section Title -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="📷 Add Photo (Optional)"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary_dark"
+                        android:layout_marginBottom="12dp"/>
+
+                    <!-- Photo Preview -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="@android:color/transparent"
+                        android:layout_marginBottom="12dp">
+
+                        <ImageView
+                            android:id="@+id/ivPhotoPreview"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:scaleType="centerCrop"
+                            android:background="@drawable/card_glass"
+                            android:visibility="gone"/>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Select Photo Button -->
+                    <Button
+                        android:id="@+id/btnSelectPhoto"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:text="📁 SELECT PHOTO"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/primary"
+                        android:textAllCaps="false"
+                        android:background="@drawable/card_glass"
+                        android:layout_marginBottom="8dp"
+                        android:stateListAnimator="@null"/>
+
+                    <!-- Photo Status Text -->
+                    <TextView
+                        android:id="@+id/tvPhotoStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No photo selected"
+                        android:textSize="13sp"
+                        android:textColor="@color/text_hint"
+                        android:layout_marginBottom="24dp"/>
+
+                    <!-- Submit Button - Gradient -->
+                    <Button
+                        android:id="@+id/btnSubmitReport"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:text="🚀 SUBMIT REPORT"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/white"
+                        android:textAllCaps="false"
+                        android:background="@drawable/btn_gradient"
+                        android:stateListAnimator="@null"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</FrameLayout>
