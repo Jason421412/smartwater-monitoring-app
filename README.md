@@ -25,13 +25,20 @@ Beyond sensor monitoring, the app includes GPS-based pollution reporting with Go
 
 ## Screenshots
 
-| Dashboard | Bluetooth | Community Feed |
-|:---------:|:---------:|:--------------:|
-| ![Dashboard](docs/screenshots/dashboard.png) | ![Bluetooth](docs/screenshots/bluetooth.png) | ![Community](docs/screenshots/community.png) |
+### Dashboard
+![Dashboard](docs/screenshots/dashboard.png)
 
-| Pollution Report | Alerts |
-|:---------------:|:------:|
-| ![Report](docs/screenshots/report.png) | ![Alerts](docs/screenshots/alerts.png) |
+### Bluetooth
+![Bluetooth](docs/screenshots/bluetooth.png)
+
+### Community Feed
+![Community Feed](docs/screenshots/community.png)
+
+### Pollution Report
+![Pollution Report](docs/screenshots/report_map.png)
+
+### Alerts
+![Alerts](docs/screenshots/alerts.png)
 
 ---
 
