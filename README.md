@@ -1,227 +1,140 @@
-# SmartWater Monitoring App 💧
+# SmartWater Monitoring App
 
-> A full-stack Android application for **real-time IoT water quality monitoring** — featuring Bluetooth sensor integration, interactive historical charts, GPS pollution reporting, and a Twitter-style community feed.
+An Android client with a Flutter add-to-app module for real-time IoT water quality monitoring, historical charts, GPS pollution reporting, and community discussion.
 
-[![Platform](https://img.shields.io/badge/Platform-Android-3DDC84?logo=android&logoColor=white)](https://developer.android.com)
-[![Min SDK](https://img.shields.io/badge/Min%20SDK-API%2024-brightgreen)](https://android-arsenal.com/api?level=24)
-[![Language](https://img.shields.io/badge/Language-Java-ED8B00?logo=openjdk&logoColor=white)](https://www.java.com)
-[![Flutter](https://img.shields.io/badge/Flutter-Add--to--App-54C5F8?logo=flutter&logoColor=white)](https://flutter.dev)
-[![License](https://img.shields.io/badge/License-MIT-blue)](LICENSE)
+## Why I Built This
 
----
+Water quality monitoring is a useful example of software that connects the physical world with mobile and backend systems. This project explores the client-side engineering needed for that workflow: ingesting sensor data, showing readable real-time status, syncing with backend APIs, and letting users report pollution events from the field.
 
-## Overview
-
-SmartWater connects to IoT water quality sensors via **Bluetooth Classic (RFCOMM/SPP)** and a **Spring Boot REST API** to provide citizens and environmental researchers with a complete water monitoring platform.
-
-The app handles the full IoT pipeline end-to-end: raw Bluetooth byte streams are parsed by a multi-format sensor parser, validated, displayed on a real-time dashboard, and synchronised to a cloud backend — all secured with JWT bearer-token authentication via an OkHttp interceptor.
-
-Beyond sensor monitoring, the app includes GPS-based pollution reporting with Google Maps integration and a Twitter-style community feed for crowdsourced water quality discussion.
-
-> **Note:** This repository contains the Android client and Flutter module only.  
-> The Spring Boot REST API and FastAPI sensor service are separate backend components not included here.
-
----
-
-## Screenshots
-
-### Dashboard
-![Dashboard](docs/screenshots/dashboard.png)
-
-### Bluetooth
-![Bluetooth](docs/screenshots/bluetooth.png)
-
-### Community Feed
-![Community Feed](docs/screenshots/community.png)
-
-### Pollution Report
-![Pollution Report](docs/screenshots/report_map.png)
-
-### Alerts
-![Alerts](docs/screenshots/alerts.png)
-
----
+The repository contains the Android client and embedded Flutter module. The Spring Boot REST API and FastAPI sensor service are external components and are not included in this repo.
 
 ## Features
 
-### 📊 Real-Time Water Quality Dashboard
-- Live pH and temperature readings with **5-second auto-refresh**
-- 3-tier quality classification: **SAFE** / **MODERATE** / **POLLUTED** (based on pH thresholds)
-- Interactive **MPAndroidChart** line charts with cubic bezier smoothing
-- 4 time-range selectors: **1H / 24H / 7D / 30D**
-- Pull-to-refresh support
-
-### 🔗 Bluetooth Sensor Integration
-- **Bluetooth Classic RFCOMM/SPP** connection with reflection-based fallback for legacy devices
-- Multi-format sensor data parser: accepts **key:value pairs**, **CSV**, and **JSON** from the physical sensor
-- Parsed readings synced to backend via REST API
-- Visual device scan list and connection status tracking
-
-### 🚨 Smart Alerts
-- Threshold-based water quality alerts fetched from backend
-- **Critical** (red) / **Warning** (orange) severity tiers with filter buttons
-- 5-second auto-refresh
-
-### 📝 Pollution Reporting
-- **FusedLocationProviderClient** for automatic GPS coordinate detection
-- **Geocoder** reverse-coding to human-readable address
-- Manual location override via **Google Maps** interactive picker (`MapPickerActivity`)
-- Camera capture and gallery image selection with full **Android 13+ permission** handling (`READ_MEDIA_IMAGES`)
-
-### 💬 Community Feed
-- Twitter-style social feed: **likes**, **retweets**, **quote tweets**, **replies**, **bookmarks**
-- Hashtag highlighting with `SpannableString` + regex (`#word` → coloured inline)
-- Sensor badge display (pH / temperature directly on posts)
-- Paginated loading, 10-second auto-refresh, pull-to-refresh
-- User profiles, follow/unfollow, followers/following lists, bookmarks, search
-
-### 🔐 Authentication
-- JWT bearer-token auth via **OkHttp `JwtInterceptor`** — token auto-attached to every API request
-- Token persisted in SharedPreferences via `TokenStore`
-- User registration + login + profile editing + profile photo upload
-
-### 📱 Flutter Add-to-App Screens
-- Second UI layer built in Flutter and embedded via **`FlutterActivity` (Add-to-App pattern)**
-- Flutter dashboard shows real-time water quality with glassmorphism UI and animated counters
-- Historical data chart using `fl_chart`; state management via `Provider`
-
----
+- Real-time dashboard for pH and temperature readings.
+- Historical water-quality charts with multiple time ranges.
+- Bluetooth Classic RFCOMM/SPP sensor connection flow.
+- Multi-format sensor parser for key-value, CSV, and JSON-like readings.
+- REST API integration through Retrofit and OkHttp.
+- JWT bearer-token injection using an OkHttp interceptor.
+- Login, registration, profile update, and token persistence flow.
+- GPS-based pollution report form with camera/gallery attachment support.
+- Google Maps location picker for manual report coordinates.
+- Community feed with posts, replies, likes, reposts, bookmarks, profiles, and search.
+- Flutter add-to-app dashboard module using Provider and `fl_chart`.
+- Screenshot assets for dashboard, Bluetooth, community feed, reporting, and alerts.
 
 ## Tech Stack
 
-| Layer | Technology | Version |
-|-------|-----------|---------|
-| **Language** | Java | 1.8 |
-| **Platform** | Android SDK | Target 34, Min 24 (Android 7.0+) |
-| **UI** | Material Components + ConstraintLayout | 1.11.0 / 2.1.4 |
-| **REST Client** | Retrofit 2 + OkHttp | 2.11.0 / 4.12.0 |
-| **JSON** | Gson | bundled with Retrofit |
-| **Charts** | MPAndroidChart | 3.1.0 |
-| **Location** | Google Play Services Location | 21.1.0 |
-| **Maps** | Google Maps SDK for Android | 18.2.0 |
-| **Bluetooth** | Android SDK BluetoothAdapter (RFCOMM/SPP) | — |
-| **Cross-framework** | Flutter Add-to-App | Flutter 3.x |
-| **Flutter state** | Provider | 6.1.1 |
-| **Flutter charts** | fl_chart | 0.65.0 |
-| **Backend** | Spring Boot + FastAPI + PostgreSQL + Redis | External |
+- **Android:** Java, Android SDK, Material Components, ConstraintLayout
+- **Networking:** Retrofit 2, OkHttp, Gson
+- **Authentication:** JWT bearer-token flow with `SharedPreferences` token storage
+- **IoT / Device:** Android Bluetooth APIs, RFCOMM/SPP socket connection
+- **Maps / Location:** Google Maps SDK for Android, Google Play Services Location
+- **Charts:** MPAndroidChart on Android, `fl_chart` in Flutter
+- **Flutter module:** Flutter, Dart, Provider
+- **External backend:** Spring Boot REST API, FastAPI sensor service, PostgreSQL, Redis
 
----
+## Architecture / System Design
 
-## Architecture
+```text
+Android UI activities
+  -> Retrofit API interfaces
+  -> OkHttp client + JwtInterceptor
+  -> External Spring Boot REST API
+  -> External database/cache layer
 
-```
-┌─────────────────────────────────────────────────────┐
-│              Presentation Layer                      │
-│   19 Activities + 2 RecyclerView Adapters           │
-│   + Flutter screens (FlutterActivity embedding)     │
-└────────────────────┬────────────────────────────────┘
-                     │ Retrofit callbacks (UI thread)
-┌────────────────────▼────────────────────────────────┐
-│              Network Layer                           │
-│   ApiClient (Retrofit factory, dynamic base URL)    │
-│   7 API interfaces: Auth · Water · Community ·      │
-│     Report · Alert · Bluetooth · Follow             │
-│   JwtInterceptor (Bearer token on every request)    │
-└────────────────────┬────────────────────────────────┘
-                     │
-┌────────────────────▼────────────────────────────────┐
-│              Data Layer                              │
-│   21 DTOs (request + response models)               │
-│   TokenStore (JWT in SharedPreferences)             │
-│   SharedPreferences (profile cache, base URL)       │
-└────────────────────┬────────────────────────────────┘
-                     │ HTTP/REST
-┌────────────────────▼────────────────────────────────┐
-│              Backend (External)                      │
-│   Spring Boot REST API · FastAPI sensor service     │
-│   PostgreSQL · Redis                                │
-└─────────────────────────────────────────────────────┘
+Bluetooth sensor
+  -> BluetoothConnectionManager
+  -> parser and UI callback
+  -> dashboard update / backend sync
 
-Bluetooth (dedicated package, separate from network):
-BluetoothConnectionManager ──► ConnectionCallback
-  ConnectThread  (RFCOMM socket + reflection fallback)
-  ConnectedThread (read loop + multi-format parser)
-  → Handler.post() dispatches parsed data to UI thread
+FlutterActivity
+  -> Flutter dashboard module
+  -> Provider state management
+  -> API service layer
 ```
 
----
+- **Frontend:** The Android app is organized around activity screens for dashboard, Bluetooth, reports, alerts, community feed, authentication, and profiles.
+- **Backend/API:** `network/ApiClient.java` builds Retrofit clients and exposes separate API interfaces for auth, water data, community, reports, alerts, Bluetooth, and follows.
+- **Authentication:** `JwtInterceptor.java` attaches the saved bearer token to outgoing API calls. `TokenStore.java` handles token persistence.
+- **Sensor integration:** `BluetoothConnectionManager.java` manages RFCOMM connection setup, read loops, and sensor parsing before dispatching parsed readings back to the UI.
+- **Storage:** The included client stores tokens and selected settings locally. Long-term water data, reports, posts, and user records are expected to live in the external backend.
+- **Flutter integration:** `smartwater_flutter/` provides an add-to-app dashboard module with its own models, provider, API service, screens, theme, and widgets.
+- **Deployment:** This repo is a mobile client. To run end-to-end, the external backend services must also be running and reachable from the emulator or device.
 
-## Repository Structure
+## My Contributions
 
-```
-SmartWater Monitoring App/
-├── SmartWaterMonitoringApp/      Android app (Java, SDK 34)
-│   └── app/src/main/
-│       ├── java/                 52 source files
-│       │   ├── *.java            19 Activities
-│       │   ├── adapter/          2 RecyclerView adapters
-│       │   ├── bluetooth/        BluetoothConnectionManager (RFCOMM/SPP)
-│       │   └── network/          ApiClient · 7 API interfaces · JwtInterceptor
-│       │       └── dto/          21 DTO classes
-│       └── res/                  26 layouts · 51 drawables · themes
-│
-└── smartwater_flutter/           Flutter Add-to-App module (Dart)
-    └── lib/
-        ├── config/               AppConfig (server IP, thresholds, endpoints)
-        ├── models/               WaterQualityData · HistoryResponse
-        ├── providers/            WaterQualityProvider (state management)
-        ├── screens/              Dashboard · History · Splash · Home
-        ├── services/             ApiService (HTTP client)
-        ├── theme/                Design tokens
-        └── widgets/              GlassCard · ParameterCard · StatusBanner
-```
+- Built and documented the Android client structure for dashboard, Bluetooth, reporting, community, and authentication flows.
+- Implemented Retrofit API interfaces and a reusable API client layer.
+- Added JWT request injection through an OkHttp interceptor.
+- Implemented Bluetooth sensor connection and parsing logic.
+- Built dashboard and historical chart UI for water-quality readings.
+- Added GPS and Google Maps location selection for pollution reports.
+- Integrated a Flutter add-to-app dashboard module with Provider-based state handling.
+- Added screenshots and setup documentation for portfolio review.
 
----
+## What I Learned
 
-## Prerequisites
+- How mobile clients coordinate device APIs, backend APIs, authentication state, and UI refresh cycles.
+- Why IoT apps need robust parsing and validation around sensor input formats.
+- How Retrofit, OkHttp interceptors, DTOs, and token storage fit together in a mobile API client.
+- How to separate included client-side work from external backend services in documentation.
+- How Flutter add-to-app can be used to introduce a second UI layer into a native Android project.
 
-- **Android Studio** (Hedgehog / Iguana or later)
-- **JDK 8+**  
-- **Flutter SDK** (3.x) — only needed if modifying the Flutter module
-- A running **SmartWater Spring Boot** backend on port `8080`
-- A running **FastAPI** sensor service on port `8888` (for Bluetooth data ingestion)
-- A **Google Maps API key** with Maps SDK for Android enabled
+## Screenshots / Demo
 
----
+![Dashboard](docs/screenshots/dashboard.png)
+![Bluetooth](docs/screenshots/bluetooth.png)
+![Community feed](docs/screenshots/community.png)
+![Pollution report map](docs/screenshots/report_map.png)
+![Alerts](docs/screenshots/alerts.png)
 
-## Getting Started
+Evidence to add later:
 
-### 1. Clone the repository
-```bash
-git clone https://github.com/YOUR_USERNAME/smartwater-monitoring-app.git
-cd smartwater-monitoring-app
-```
+- Short demo video showing Bluetooth connection, dashboard refresh, report creation, and community feed.
+- Architecture diagram showing Android client, Flutter module, sensor source, and external backend services.
+- Backend repository links if those services are public and safe to share.
 
-### 2. Configure secrets in `local.properties`
+## Setup
 
-Create `SmartWaterMonitoringApp/local.properties` (this file is gitignored and never committed):
-```properties
-# Android SDK path — auto-set by Android Studio, adjust if needed
-sdk.dir=/path/to/your/Android/Sdk
+### Android Client
 
-# Google Maps API key (Maps SDK for Android)
-# Get one at: https://console.cloud.google.com/apis/credentials
-MAPS_API_KEY=your_google_maps_api_key_here
-```
+1. Clone the repository.
 
-### 3. Set your backend server IP
+   ```bash
+   git clone https://github.com/Jason421412/smartwater-monitoring-app.git
+   cd smartwater-monitoring-app
+   ```
 
-**Android app** — the default URL is `http://10.0.2.2:8080/` (Android emulator loopback pointing to your host machine). For a real device on LAN, either use the in-app settings screen at runtime, or update the constant:
-```java
-// network/ApiClient.java
-public static final String DEFAULT_BASE_URL = "http://YOUR_SERVER_IP:8080/";
-```
+2. Open the Android project in Android Studio.
 
-**Flutter module** — edit `smartwater_flutter/lib/config/app_config.dart`:
-```dart
-static const String serverIP = 'YOUR_SERVER_IP'; // replace with your LAN IP
-```
+   ```text
+   SmartWaterMonitoringApp/
+   ```
 
-### 4. Open and run the Android project
+3. Create a local properties file from the safe example.
 
-Open `SmartWaterMonitoringApp/` in Android Studio, then run on an emulator or physical device (API 24+).
+   ```bash
+   cp SmartWaterMonitoringApp/local.properties.example SmartWaterMonitoringApp/local.properties
+   ```
 
-### 5. (Optional) Run the Flutter module standalone
+4. Update `SmartWaterMonitoringApp/local.properties` with your local Android SDK path and your own Google Maps API key.
+
+   ```properties
+   sdk.dir=/path/to/your/Android/Sdk
+   MAPS_API_KEY=your_google_maps_api_key_here
+   ```
+
+5. Run the app on an emulator or Android device with API 24+.
+
+6. Make sure the external backend is reachable:
+
+   - Android emulator host loopback: `http://10.0.2.2:8080/`
+   - Physical device: use your machine's LAN IP address.
+
+### Flutter Module
+
+Only needed if you want to modify or run the Flutter module directly.
 
 ```bash
 cd smartwater_flutter
@@ -229,44 +142,19 @@ flutter pub get
 flutter run
 ```
 
----
+If using a real device, update the server IP in:
 
-## Key Components
+```text
+smartwater_flutter/lib/config/app_config.dart
+```
 
-| File | Lines | Purpose |
-|------|------:|---------|
-| `DashboardActivity.java` | 728 | Real-time sensor display, MPAndroidChart, 5 s auto-refresh |
-| `BluetoothConnectionManager.java` | 476 | RFCOMM socket, data streaming, multi-format parser |
-| `CommunityActivity.java` | 641 | Twitter-style feed, like/reply/RT with backend sync |
-| `SubmitReportActivity.java` | 539 | GPS form, camera, Google Maps location picker |
-| `ApiClient.java` | 225 | Retrofit factory — dynamic URL + 7 API services |
-| `JwtInterceptor.java` | 37 | Bearer token injection on all outgoing HTTP requests |
+## Future Improvements
 
----
-
-## Permissions
-
-| Permission | Reason |
-|---|---|
-| `INTERNET` | API calls to Spring Boot backend |
-| `BLUETOOTH` / `BLUETOOTH_ADMIN` | Classic Bluetooth scan and pairing |
-| `BLUETOOTH_SCAN` / `BLUETOOTH_CONNECT` | Bluetooth permissions for Android 12+ |
-| `ACCESS_FINE_LOCATION` / `ACCESS_COARSE_LOCATION` | GPS for pollution reports |
-| `CAMERA` | Photo attachment for pollution reports |
-| `READ_MEDIA_IMAGES` | Gallery access on Android 13+ |
-| `POST_NOTIFICATIONS` | Alert notifications on Android 13+ |
-
----
-
-## Known Limitations
-
-- The Spring Boot backend, FastAPI sensor service, and database are **not included** in this repository. This repo is the Android client + Flutter module only.
-- Google Maps requires a valid API key in `local.properties` — the map view will not render without one.
-- Bluetooth sensor communication requires a physical device paired with a compatible water quality sensor over SPP/RFCOMM.
-- The app uses `cleartext traffic` (`android:usesCleartextTraffic="true"`) for local development. For a production deployment, enable HTTPS on the backend and remove this flag.
-
----
-
-## License
-
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+- Add unit tests for Bluetooth parsing and API response mapping.
+- Add instrumentation tests for login, dashboard, and report submission flows.
+- Add offline cache and retry queue for poor network conditions.
+- Add stronger error handling around Bluetooth disconnects and malformed sensor data.
+- Move server URL configuration into a safer build/runtime configuration flow.
+- Add CI for Android and Flutter checks.
+- Publish or link backend repositories with sanitized environment examples.
+- Add role-based access control and moderation flows on the backend side.
