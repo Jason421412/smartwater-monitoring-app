@@ -62,6 +62,8 @@ FlutterActivity
 - **Flutter integration:** `smartwater_flutter/` provides an add-to-app dashboard module with its own models, provider, API service, screens, theme, and widgets.
 - **Deployment:** This repo is a mobile client. To run end-to-end, the external backend services must also be running and reachable from the emulator or device.
 
+More detail: [docs/architecture.md](docs/architecture.md).
+
 ## My Contributions
 
 - Built and documented the Android client structure for dashboard, Bluetooth, reporting, community, and authentication flows.
